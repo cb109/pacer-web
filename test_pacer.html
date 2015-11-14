@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.20.0.css">
+        <script src="http://code.jquery.com/qunit/qunit-1.20.0.js"></script>
+        <script src="pacer.js"></script>
+    </head>
+    <body>
+        <script>
+            QUnit.test("test_pacer_init", function(assert) {
+                pacer.init(10, 60.0)
+
+                assert.equal(pacer.getDistance(), 10);
+                assert.equal(pacer.getTime(), 60.0);
+                assert.equal(pacer.getPace(), 0);
+                assert.equal(pacer.getSpeed(), 0);
+            });
+
+            QUnit.test("test_pacer_calc", function(assert) {
+                pacer.init(10, 60.0)
+                pacer.calc()
+
+                assert.equal(pacer.getDistance(), 10);
+                assert.equal(pacer.getTime(), 60.0);
+                assert.equal(pacer.getPace(), 6);
+                assert.equal(pacer.getSpeed(), 10);
+            });
+
+            QUnit.test("test_pacer_reset", function(assert) {
+                pacer.init(10, 60.0)
+                pacer.reset()
+
+                assert.equal(pacer.getDistance(), 0);
+                assert.equal(pacer.getTime(), 0.0);
+                assert.equal(pacer.getPace(), 0);
+                assert.equal(pacer.getSpeed(), 0);
+            });
+        </script>
+        <div id="qunit"></div>
+        <div id="qunit-fixture"></div>
+    </body>
+</html>
