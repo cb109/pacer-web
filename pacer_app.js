@@ -6,6 +6,10 @@ app.controller("pacer_ctrl", function($scope) {
     $scope.speed = void 0;  // Kilometers per hour.
     $scope.pace = void 0;  // Minutes per kilometer.
 
+    $scope.clamp = function(num) {
+        return Number(num.toFixed(2));
+    }
+
     $scope.reset = function() {
         $scope.distance = void 0;
         $scope.time = void 0;
@@ -15,27 +19,27 @@ app.controller("pacer_ctrl", function($scope) {
 
     $scope.calcPace = function() {
         var pace = $scope.time / $scope.distance;
-        return pace;
+        return $scope.clamp(pace);
     }
 
     $scope.calcPaceUsingSpeed = function() {
         var pace = 60.0 / $scope.speed;
-        return pace;
+        return $scope.clamp(pace);
     }
 
     $scope.calcSpeed = function() {
         var speed = $scope.distance / ($scope.time / 60.0);
-        return speed;
+        return $scope.clamp(speed);
     }
 
     $scope.calcDistance = function() {
         var distance = $scope.time / $scope.pace;
-        return distance;
+        return $scope.clamp(distance);
     }
 
     $scope.calcTime = function() {
         var time = $scope.distance * $scope.pace;
-        return time;
+        return $scope.clamp(time);
     }
 
     $scope.onChangedDistance = function() {
