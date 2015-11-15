@@ -1,10 +1,36 @@
 <html>
-    <script src="pacer.js"></script>
-    <body>
-        <h1>Pacer</h1>
-        <p>Distance: <input type="text" name="foo:"> (km)</p>
-        <p>Time: <input type="text" name="foo:"> (min)</p>
-        <p>Pace: <input type="text" name="foo:"> (min/km)</p>
-        <p>Speed: <input type="text" name="foo:"> (km/h)</p>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script src="pacer_app.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body ng-app="pacer_app" ng-controller="pacer_ctrl">
+        <div class="jumbotron text-center">
+            <h1><b>Pacer</b></h1>
+            <h3>Calculations for Runners</h3>
+        </div>
+        <div class="container">
+            <form role="form" class="form-group">
+                <div class="input-group ">
+                    <span class="input-group-addon " id="addon-distance">Distance</span>
+                    <input type="text" class="form-control" placeHolder="Kilometers" ng-model="distance" ng-change="onChangedDistance()">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="addon-time">Time</span>
+                    <input type="text" class="form-control" placeHolder="Minutes" ng-model="time" ng-change="onChangedTime()">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="addon-pace">Pace</span>
+                    <input type="text" class="form-control" placeHolder="Minutes per Kilometer" ng-model="pace" ng-change="onChangedPace()">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="addon-speed">Speed</span>
+                    <input type="text" class="form-control" placeHolder="Kilometers per Hour" ng-model="speed" ng-change="onChangedSpeed()">
+                </div>
+            </form>
+        </div>
     </body>
 </html>
