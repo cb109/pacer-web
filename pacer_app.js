@@ -69,3 +69,17 @@ app.controller("pacer_ctrl", function($scope) {
         $scope.time = $scope.calcTime();
     }
 });
+
+app.filter("minutesToTimeString", function() {
+    return function(minutes) {
+        var hours = Math.floor(minutes / 60.0);
+        var restMinutes = minutes % 60.0;
+        var seconds = restMinutes * 60.0;
+        var restSeconds = seconds % 60.0;
+        var timeString = "";
+        timeString = hours + "h ";
+        timeString += Math.floor(restMinutes) + "m ";
+        timeString += Math.floor(restSeconds) + "s";
+        return timeString;
+    }
+});

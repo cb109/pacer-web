@@ -53,29 +53,29 @@
                             <thead>
                                 <tr>
                                     <th>Distance (km)</th>
-                                    <th>Time (min)</th>
+                                    <th>Time</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>5</td>
-                                    <td>{{ estimateTime(distance, time, 5) }}</td>
+                                    <td>{{ estimateTime(distance, time, 5) | minutesToTimeString }}</td>
                                 </tr>
                                 <tr>
                                     <td>10</td>
-                                    <td>{{ estimateTime(distance, time, 10) }}</td>
+                                    <td>{{ estimateTime(distance, time, 10) | minutesToTimeString }}</td>
                                 </tr>
                                 <tr>
                                     <td>21.1 (Half Marathon)</td>
-                                    <td>{{ estimateTime(distance, time, 21.0975) }}</td>
+                                    <td>{{ estimateTime(distance, time, 21.0975) | minutesToTimeString }}</td>
                                 </tr>
                                 <tr>
                                     <td>42.2 (Marathon)</td>
-                                    <td>{{ estimateTime(distance, time, 42.195) }}</td>
+                                    <td>{{ estimateTime(distance, time, 42.195) | minutesToTimeString }} </td>
                                 </tr>
                                 <tr>
                                     <td>100</td>
-                                    <td>{{ estimateTime(distance, time, 100) }}</td>
+                                    <td>{{ estimateTime(distance, time, 100) | minutesToTimeString }}</td>
                                 </tr>
                             </tbody>
                         </table>
