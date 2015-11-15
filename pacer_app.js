@@ -42,6 +42,13 @@ app.controller("pacer_ctrl", function($scope) {
         return $scope.clamp(time);
     }
 
+    // Based on the formula here: http://de.wikipedia.org/wiki/Laufsport
+    $scope.estimateTime = function(knownDistance, knownTime, newDistance) {
+        var factor = newDistance / knownDistance;
+        var predictedTime = knownTime * Math.pow(factor, 1.07);
+        return $scope.clamp(predictedTime);
+    }
+
     $scope.onChangedDistance = function() {
         $scope.pace = $scope.calcPace();
         $scope.speed = $scope.calcSpeed();
