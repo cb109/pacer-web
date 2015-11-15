@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-    width: 350px;
+    width: 400px;
 }
 
 .jumbotron {
@@ -37,11 +37,16 @@ body {
     margin-top: 5px;
 }
 
-.input-group-addon, .input-group-btn  {
+.addon-left {
     min-width: 100px;
     text-align: right;
     color: rgb(255, 255, 255);
     background-color: rgb(50, 118, 177);
     border-color: rgb(40, 94, 142);
+}
+
+.addon-right {
+    min-width: 75px;
+    text-align: left;
 }
 
