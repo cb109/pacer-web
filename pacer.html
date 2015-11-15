@@ -13,23 +13,25 @@
             <h3>Calculations for Runners</h3>
         </div>
         <div class="container">
+            <p class="panel">Type in values (distance and time are required) and see the relations update on the fly.</p>
             <form role="form" class="form-group">
                 <div class="input-group ">
-                    <span class="input-group-addon " id="addon-distance">Distance</span>
-                    <input type="text" class="form-control" placeHolder="Kilometers" ng-model="distance" ng-change="onChangedDistance()">
+                    <span class="input-group-addon">Distance</span>
+                    <input type="number" step="1.0" class="form-control" placeHolder="Kilometers" ng-model="distance" ng-change="onChangedDistance()">
                 </div>
                 <div class="input-group">
-                    <span class="input-group-addon" id="addon-time">Time</span>
-                    <input type="text" class="form-control" placeHolder="Minutes" ng-model="time" ng-change="onChangedTime()">
+                    <span class="input-group-addon">Time</span>
+                    <input type="number" step="1.0" class="form-control" placeHolder="Minutes" ng-model="time" ng-change="onChangedTime()">
                 </div>
                 <div class="input-group">
-                    <span class="input-group-addon" id="addon-pace">Pace</span>
-                    <input type="text" class="form-control" placeHolder="Minutes per Kilometer" ng-model="pace" ng-change="onChangedPace()">
+                    <span class="input-group-addon">Pace</span>
+                    <input type="number" step="0.1" class="form-control" placeHolder="Minutes per Kilometer" ng-model="pace" ng-change="onChangedPace()">
                 </div>
                 <div class="input-group">
-                    <span class="input-group-addon" id="addon-speed">Speed</span>
-                    <input type="text" class="form-control" placeHolder="Kilometers per Hour" ng-model="speed" ng-change="onChangedSpeed()">
+                    <span class="input-group-addon">Speed</span>
+                    <input type="number" step="0.5" class="form-control" placeHolder="Kilometers per Hour" ng-model="speed" ng-change="onChangedSpeed()">
                 </div>
+                <input type="button" value="Reset" class="btn" ng-click="reset()">
             </form>
         </div>
     </body>
