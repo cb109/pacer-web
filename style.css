@@ -12,6 +12,22 @@ body {
     border-color: rgb(40, 94, 142);
 }
 
+.btn {
+    color: rgb(255, 255, 255);
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+}
+
+.btn-reset {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    color: rgb(50, 118, 177);
+    background-color: rgb(255, 255, 255);
+}
+
 .form-control {
     max-width: 100%;
     text-align: left;
@@ -21,7 +37,7 @@ body {
     margin-top: 5px;
 }
 
-.input-group-addon {
+.input-group-addon, .input-group-btn  {
     min-width: 100px;
     text-align: right;
     color: rgb(255, 255, 255);
@@ -29,15 +45,3 @@ body {
     border-color: rgb(40, 94, 142);
 }
 
-.btn {
-    margin-top: 10px;
-    width: 100%;
-    color: rgb(255, 255, 255);
-    background-color: rgb(50, 118, 177);
-    border-color: rgb(40, 94, 142);
-}
-
-.btn:hover {
-    color: rgb(50, 118, 177);
-    background-color: rgb(255, 255, 255);
-}
