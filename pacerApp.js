@@ -73,12 +73,6 @@
       }
   })
 
-  .controller("PacerDateController", function() {
-    this.example = {
-      value: new Date(1970, 0, 0, 0, 0, 0)
-    };
-  })
-
   .filter("minutesToTimeString", function() {
     return function(minutes) {
       var hours = Math.floor(minutes / 60.0);
