@@ -3,73 +3,73 @@
 
   angular.module("pacerApp", [])
 
-    .controller("PacerController", function($scope) {
-      $scope.distance = void 0;  // Kilometers.
-      $scope.time = void 0;
-      $scope.speed = void 0;  // Kilometers per hour.
-      $scope.pace = void 0;;
+    .controller("PacerController", function() {
+      this.distance = void 0;  // Kilometers.
+      this.time = void 0;
+      this.speed = void 0;  // Kilometers per hour.
+      this.pace = void 0;;
 
-      $scope.clamp = function(num) {
+      this.clamp = function(num) {
         return Number(num.toFixed(2));
       }
 
-      $scope.reset = function() {
-        $scope.distance = void 0;
-        $scope.time = void 0;
-        $scope.speed = void 0;
-        $scope.pace = void 0;
+      this.reset = function() {
+        this.distance = void 0;
+        this.time = void 0;
+        this.speed = void 0;
+        this.pace = void 0;
       }
 
-      $scope.calcPace = function() {
-        var pace = $scope.time / $scope.distance;
-        return $scope.clamp(pace);
+      this.calcPace = function() {
+        var pace = this.time / this.distance;
+        return this.clamp(pace);
       }
 
-      $scope.calcPaceUsingSpeed = function() {
-        var pace = 60.0 / $scope.speed;
-        return $scope.clamp(pace);
+      this.calcPaceUsingSpeed = function() {
+        var pace = 60.0 / this.speed;
+        return this.clamp(pace);
       }
 
-      $scope.calcSpeed = function() {
-        var speed = $scope.distance / ($scope.time / 60.0);
-        return $scope.clamp(speed);
+      this.calcSpeed = function() {
+        var speed = this.distance / (this.time / 60.0);
+        return this.clamp(speed);
       }
 
-      $scope.calcDistance = function() {
-        var distance = $scope.time / $scope.pace;
-        return $scope.clamp(distance);
+      this.calcDistance = function() {
+        var distance = this.time / this.pace;
+        return this.clamp(distance);
       }
 
-      $scope.calcTime = function() {
-        var time = $scope.distance * $scope.pace;
-        return $scope.clamp(time);
+      this.calcTime = function() {
+        var time = this.distance * this.pace;
+        return this.clamp(time);
       }
 
       // Based on the formula here: http://de.wikipedia.org/wiki/Laufsport
-      $scope.estimateTime = function(knownDistance, knownTime, newDistance) {
+      this.estimateTime = function(knownDistance, knownTime, newDistance) {
         var factor = newDistance / knownDistance;
         var predictedTime = knownTime * Math.pow(factor, 1.07);
-        return $scope.clamp(predictedTime);
+        return this.clamp(predictedTime);
       }
 
-      $scope.onChangedDistance = function() {
-        $scope.pace = $scope.calcPace();
-        $scope.speed = $scope.calcSpeed();
+      this.onChangedDistance = function() {
+        this.pace = this.calcPace();
+        this.speed = this.calcSpeed();
       }
 
-      $scope.onChangedTime = function() {
-        $scope.pace = $scope.calcPace();
-        $scope.speed = $scope.calcSpeed();
+      this.onChangedTime = function() {
+        this.pace = this.calcPace();
+        this.speed = this.calcSpeed();
       }
 
-      $scope.onChangedPace = function() {
-        $scope.time = $scope.calcTime();
-        $scope.speed = $scope.calcSpeed();
+      this.onChangedPace = function() {
+        this.time = this.calcTime();
+        this.speed = this.calcSpeed();
       }
 
-      $scope.onChangedSpeed = function() {
-        $scope.pace = $scope.calcPaceUsingSpeed();
-        $scope.time = $scope.calcTime();
+      this.onChangedSpeed = function() {
+        this.pace = this.calcPaceUsingSpeed();
+        this.time = this.calcTime();
       }
   })
 

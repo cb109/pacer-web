@@ -12,7 +12,7 @@
         <script src="pacerApp.js"></script>
     </head>
 
-    <body ng-app="pacerApp" ng-controller="PacerController">
+    <body ng-app="pacerApp" ng-controller="PacerController as pacerCtrl">
         <div class="jumbotron text-center">
             <h1><b>Pacer</b></h1>
             <h3>Calculations for Runners</h3>
@@ -24,25 +24,25 @@
             <form role="form" class="form-group">
                 <div class="input-group ">
                     <span class="input-group-addon addon-left">Distance</span>
-                    <input type="number" step="1.0" class="form-control" placeHolder="10 Kilometers" ng-model="distance" ng-change="onChangedDistance()">
+                    <input type="number" step="1.0" class="form-control" placeHolder="10 Kilometers" ng-model="pacerCtrl.distance" ng-change="pacerCtrl.onChangedDistance()">
                     <span class="input-group-addon addon-right">km</span>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon addon-left">Time</span>
-                    <input type="number" step="1.0" class="form-control" placeHolder="60 Minutes" ng-model="time" ng-change="onChangedTime()">
+                    <input type="number" step="1.0" class="form-control" placeHolder="60 Minutes" ng-model="pacerCtrl.time" ng-change="pacerCtrl.onChangedTime()">
                     <span class="input-group-addon addon-right">min</span>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon addon-left">Pace</span>
-                    <input type="number" step="0.1" class="form-control" placeHolder="6 Minutes per Kilometer" ng-model="pace" ng-change="onChangedPace()">
+                    <input type="number" step="0.1" class="form-control" placeHolder="6 Minutes per Kilometer" ng-model="pacerCtrl.pace" ng-change="pacerCtrl.onChangedPace()">
                     <span class="input-group-addon addon-right">min/km</span>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon addon-left">Speed</span>
-                    <input type="number" step="0.5" class="form-control" placeHolder="10 Kilometers per Hour" ng-model="speed" ng-change="onChangedSpeed()">
+                    <input type="number" step="0.5" class="form-control" placeHolder="10 Kilometers per Hour" ng-model="pacerCtrl.speed" ng-change="pacerCtrl.onChangedSpeed()">
                     <span class="input-group-addon addon-right">km/h</span>
                 </div>
-                <input type="button" value="Reset" class="btn btn-reset" ng-click="reset()">
+                <input type="button" value="Reset" class="btn btn-reset" ng-click="pacerCtrl.reset()">
             </form>
 
 <!--             <form name="myForm" ng-controller="PacerDateController">
@@ -50,7 +50,7 @@
                 {{ example.value | date: "HH:mm:ss" }}
             </form> -->
 
-            <div class="panel-group" ng-if="distance != NaN && time != NaN">
+            <div class="panel-group" ng-if="pacerCtrl.distance != NaN && pacerCtrl.time != NaN">
                 <div class="panel panel-default">
                     <div class="panel-heading">Time Estimates (<a href="https://en.wikipedia.org/wiki/Peter_Riegel">based on this formula</a>)</div>
                     <div class="panel-body">
@@ -64,23 +64,23 @@
                             <tbody>
                                 <tr>
                                     <td>5</td>
-                                    <td>{{ estimateTime(distance, time, 5) | minutesToTimeString }}</td>
+                                    <td>{{ pacerCtrl.estimateTime(pacerCtrl.distance, pacerCtrl.time, 5) | minutesToTimeString }}</td>
                                 </tr>
                                 <tr>
                                     <td>10</td>
-                                    <td>{{ estimateTime(distance, time, 10) | minutesToTimeString }}</td>
+                                    <td>{{ pacerCtrl.estimateTime(pacerCtrl.distance, pacerCtrl.time, 10) | minutesToTimeString }}</td>
                                 </tr>
                                 <tr>
                                     <td>21.1 (Half Marathon)</td>
-                                    <td>{{ estimateTime(distance, time, 21.0975) | minutesToTimeString }}</td>
+                                    <td>{{ pacerCtrl.estimateTime(pacerCtrl.distance, pacerCtrl.time, 21.0975) | minutesToTimeString }}</td>
                                 </tr>
                                 <tr>
                                     <td>42.2 (Marathon)</td>
-                                    <td>{{ estimateTime(distance, time, 42.195) | minutesToTimeString }} </td>
+                                    <td>{{ pacerCtrl.estimateTime(pacerCtrl.distance, pacerCtrl.time, 42.195) | minutesToTimeString }} </td>
                                 </tr>
                                 <tr>
                                     <td>100</td>
-                                    <td>{{ estimateTime(distance, time, 100) | minutesToTimeString }}</td>
+                                    <td>{{ pacerCtrl.estimateTime(pacerCtrl.distance, pacerCtrl.time, 100) | minutesToTimeString }}</td>
                                 </tr>
                             </tbody>
                         </table>
