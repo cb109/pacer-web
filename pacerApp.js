@@ -5,9 +5,9 @@
 
     .controller("PacerController", function($scope) {
       $scope.distance = void 0;  // Kilometers.
-      $scope.time = {hours: void 0, minutes: void 0, seconds: void 0};
+      $scope.time = void 0;
       $scope.speed = void 0;  // Kilometers per hour.
-      $scope.pace = {minutes: void 0, seconds: void 0};
+      $scope.pace = void 0;;
 
       $scope.clamp = function(num) {
         return Number(num.toFixed(2));
@@ -15,9 +15,9 @@
 
       $scope.reset = function() {
         $scope.distance = void 0;
-        $scope.time = {hours: void 0, minutes: void 0, seconds: void 0};
+        $scope.time = void 0;
         $scope.speed = void 0;
-        $scope.pace = {minutes: void 0, seconds: void 0};
+        $scope.pace = void 0;
       }
 
       $scope.calcPace = function() {
