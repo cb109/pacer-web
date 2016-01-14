@@ -12,7 +12,7 @@
         <script src="pacer_app.js"></script>
     </head>
 
-    <body ng-app="pacer_app" ng-controller="pacer_ctrl">
+    <body ng-app="pacerApp" ng-controller="PacerController">
         <div class="jumbotron text-center">
             <h1><b>Pacer</b></h1>
             <h3>Calculations for Runners</h3>
@@ -44,6 +44,11 @@
                 </div>
                 <input type="button" value="Reset" class="btn btn-reset" ng-click="reset()">
             </form>
+
+<!--             <form name="myForm" ng-controller="PacerDateController">
+                <input type="time" name="time" step="1" max="99" ng-model="example.value" />
+                {{ example.value | date: "HH:mm:ss" }}
+            </form> -->
 
             <div class="panel-group" ng-if="distance != NaN && time != NaN">
                 <div class="panel panel-default">

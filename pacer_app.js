@@ -1,14 +1,8 @@
 (function() {
 
-  angular.module("pacer_app", [])
+  angular.module("pacerApp", [])
 
-    .controller("pacer_date_ctrl", function($scope) {
-      $scope.example = {
-        value: new Date(1970, 0, 0, 0, 0, 0)
-      };
-    });
-
-    .controller("pacer_ctrl", function($scope) {
+    .controller("PacerController", function($scope) {
       $scope.distance = void 0;  // Kilometers.
       $scope.time = {hours: void 0, minutes: void 0, seconds: void 0};
       $scope.speed = void 0;  // Kilometers per hour.
@@ -76,6 +70,12 @@
         $scope.pace = $scope.calcPaceUsingSpeed();
         $scope.time = $scope.calcTime();
       }
+  })
+
+  .controller("PacerDateController", function() {
+    this.example = {
+      value: new Date(1970, 0, 0, 0, 0, 0)
+    };
   })
 
   .filter("minutesToTimeString", function() {
