@@ -73,17 +73,21 @@
       }
   })
 
-  .directive('pacerInputPanel', function() {
+  .directive('inputPanel', function() {
     return {
       restrict: 'E',
-      templateUrl: 'pacer-input-panel.html'
+      templateUrl: 'input-panel.html',
+      controller: 'PacerController',
+      controllerAs: 'pacerCtrl'
     };
   })
 
-  .directive('pacerEstimationPanel', function() {
+  .directive('estimationPanel', function() {
     return {
       restrict: 'E',
-      templateUrl: 'pacer-estimation-panel.html'
+      templateUrl: 'estimation-panel.html',
+      controller: 'PacerController',
+      controllerAs: 'pacerCtrl'
     };
   })
 
