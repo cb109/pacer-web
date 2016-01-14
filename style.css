@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-    width: 500px;
+    width: 600px;
 }
 
 .jumbotron {
@@ -30,7 +30,7 @@ body {
 
 .form-control {
     max-width: 100%;
-    text-align: left;
+    text-align: right;
 }
 
 .input-group {
@@ -48,5 +48,9 @@ body {
 .addon-right {
     min-width: 75px;
     text-align: left;
+}
+
+.addon-middle {
+    background-color: rgb(255, 255, 255);
 }
 
