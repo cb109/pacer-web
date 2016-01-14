@@ -1,88 +1,29 @@
 <html>
-    <head>
-        <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+  <head>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,700'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></script>
+    <link rel="stylesheet" href="style.css">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-        <script src="pacer_app.js"></script>
-    </head>
+    <script src="pacerApp.js"></script>
+  </head>
 
-    <body ng-app="pacer_app" ng-controller="pacer_ctrl">
-        <div class="jumbotron text-center">
-            <h1><b>Pacer</b></h1>
-            <h3>Calculations for Runners</h3>
-        </div>
+  <body ng-app="pacerApp">
 
-        <div class="container">
-            <p class="panel">Type in values (<i>distance</i> and <i>time</i> are required) and see the relations and estimates update on the fly.</p>
+    <div class="jumbotron text-center">
+      <h1><b>Pacer</b></h1>
+      <h3>Calculations for Runners</h3>
+    </div>
 
-            <form role="form" class="form-group">
-                <div class="input-group ">
-                    <span class="input-group-addon addon-left">Distance</span>
-                    <input type="number" step="1.0" class="form-control" placeHolder="10 Kilometers" ng-model="distance" ng-change="onChangedDistance()">
-                    <span class="input-group-addon addon-right">km</span>
-                </div>
-                <div class="input-group">
-                    <span class="input-group-addon addon-left">Time</span>
-                    <input type="number" step="1.0" class="form-control" placeHolder="60 Minutes" ng-model="time" ng-change="onChangedTime()">
-                    <span class="input-group-addon addon-right">min</span>
-                </div>
-                <div class="input-group">
-                    <span class="input-group-addon addon-left">Pace</span>
-                    <input type="number" step="0.1" class="form-control" placeHolder="6 Minutes per Kilometer" ng-model="pace" ng-change="onChangedPace()">
-                    <span class="input-group-addon addon-right">min/km</span>
-                </div>
-                <div class="input-group">
-                    <span class="input-group-addon addon-left">Speed</span>
-                    <input type="number" step="0.5" class="form-control" placeHolder="10 Kilometers per Hour" ng-model="speed" ng-change="onChangedSpeed()">
-                    <span class="input-group-addon addon-right">km/h</span>
-                </div>
-                <input type="button" value="Reset" class="btn btn-reset" ng-click="reset()">
-            </form>
+    <div class="container">
+      <p class="panel">Type in values (<i>distance</i> and <i>time</i> are required) and see the relations and estimates update on the fly.</p>
+      <input-panel></input-panel>
+      <estimation-panel></estimation-panel>
+    </div>
 
-            <div class="panel-group" ng-if="distance != NaN && time != NaN">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Time Estimates (<a href="https://en.wikipedia.org/wiki/Peter_Riegel">based on this formula</a>)</div>
-                    <div class="panel-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Distance (km)</th>
-                                    <th>Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>5</td>
-                                    <td>{{ estimateTime(distance, time, 5) | minutesToTimeString }}</td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>{{ estimateTime(distance, time, 10) | minutesToTimeString }}</td>
-                                </tr>
-                                <tr>
-                                    <td>21.1 (Half Marathon)</td>
-                                    <td>{{ estimateTime(distance, time, 21.0975) | minutesToTimeString }}</td>
-                                </tr>
-                                <tr>
-                                    <td>42.2 (Marathon)</td>
-                                    <td>{{ estimateTime(distance, time, 42.195) | minutesToTimeString }} </td>
-                                </tr>
-                                <tr>
-                                    <td>100</td>
-                                    <td>{{ estimateTime(distance, time, 100) | minutesToTimeString }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </body>
+  </body>
 </html>

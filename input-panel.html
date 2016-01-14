@@ -1,0 +1,23 @@
+<form role="form" class="form-group">
+  <div class="input-group ">
+    <span class="input-group-addon addon-left">Distance</span>
+    <input type="number" step="1.0" class="form-control" placeHolder="10 Kilometers" ng-model="pacerCtrl.distance" ng-change="pacerCtrl.onChangedDistance()">
+    <span class="input-group-addon addon-right">km</span>
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon addon-left">Time</span>
+    <input type="number" step="1.0" class="form-control" placeHolder="60 Minutes" ng-model="pacerCtrl.time" ng-change="pacerCtrl.onChangedTime()">
+    <span class="input-group-addon addon-right">min</span>
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon addon-left">Pace</span>
+    <input type="number" step="0.1" class="form-control" placeHolder="6 Minutes per Kilometer" ng-model="pacerCtrl.pace" ng-change="pacerCtrl.onChangedPace()">
+    <span class="input-group-addon addon-right">min/km</span>
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon addon-left">Speed</span>
+    <input type="number" step="0.5" class="form-control" placeHolder="10 Kilometers per Hour" ng-model="pacerCtrl.speed" ng-change="pacerCtrl.onChangedSpeed()">
+    <span class="input-group-addon addon-right">km/h</span>
+  </div>
+  <input type="button" value="Reset" class="btn btn-reset" ng-click="pacerCtrl.reset()">
+</form>
