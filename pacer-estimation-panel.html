@@ -1,0 +1,37 @@
+<div class="panel-group" ng-if="pacerCtrl.distance != NaN && pacerCtrl.time != NaN">
+  <div class="panel panel-default">
+    <div class="panel-heading">Time Estimates (<a href="https://en.wikipedia.org/wiki/Peter_Riegel">based on this formula</a>)</div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Distance (km)</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>5</td>
+            <td>{{ pacerCtrl.estimateTime(pacerCtrl.distance, pacerCtrl.time, 5) | minutesToTimeString }}</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>{{ pacerCtrl.estimateTime(pacerCtrl.distance, pacerCtrl.time, 10) | minutesToTimeString }}</td>
+          </tr>
+          <tr>
+            <td>21.1 (Half Marathon)</td>
+            <td>{{ pacerCtrl.estimateTime(pacerCtrl.distance, pacerCtrl.time, 21.0975) | minutesToTimeString }}</td>
+          </tr>
+          <tr>
+            <td>42.2 (Marathon)</td>
+            <td>{{ pacerCtrl.estimateTime(pacerCtrl.distance, pacerCtrl.time, 42.195) | minutesToTimeString }} </td>
+          </tr>
+          <tr>
+            <td>100</td>
+            <td>{{ pacerCtrl.estimateTime(pacerCtrl.distance, pacerCtrl.time, 100) | minutesToTimeString }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

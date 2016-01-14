@@ -73,6 +73,20 @@
       }
   })
 
+  .directive('pacerInputPanel', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'pacer-input-panel.html'
+    };
+  })
+
+  .directive('pacerEstimationPanel', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'pacer-estimation-panel.html'
+    };
+  })
+
   .filter("minutesToTimeString", function() {
     return function(minutes) {
       var hours = Math.floor(minutes / 60.0);
@@ -85,6 +99,6 @@
       timeString += Math.floor(restSeconds) + "s";
       return timeString;
     }
-  });
+  })
 
 })();
